@@ -9,7 +9,7 @@ and returns a new state based on the action type and payload.
 =========================================================================
 */
 import { createReducer, on } from "@ngrx/store";
-import { AddBook, RemoveBook} from "./book.actions"; // Import actions to handle book management
+import { AddBook, RemoveBook, AddBookSuccess, AddBookFailure} from "./book.actions"; // Import actions to handle book management
 import { Book } from "../models/book"; // Import the Book model
 
 //export const initialState: ReadonlyArray<Book> = []; // Initial state is an empty array of books
@@ -18,11 +18,27 @@ export const initialState: Book[] = []; // Initial state is an empty array of bo
 
 export const BookReducer = createReducer(
   initialState, // Start with the initial state and using on function to handle actions
-  // Handle the AddBook action to add a new book to the state
-  on(AddBook, (state, { id, title, author, publishedDate, genre, summary, rating, isAvailable }) => [
+  // Stage 1:  Handle the AddBook action to add a new book to the state 
+  /*on(AddBook, (state, { id, title, author, publishedDate, genre, summary, rating, isAvailable }) => [
     ...state,
     { id, title, author, publishedDate, genre, summary, rating, isAvailable } // Add a new book to the state
-  ]),
+  ]), *///* Change the state management to return a new state with the added book
+
+  on(AddBook, (state )=> {return state}), // Stage 2: Change the state management to return the current state
+  
+  //? Handle the AddBookSuccess action to add a new book to the state
+  on(AddBookSuccess, (state, { id, title, author, publishedDate, genre, summary, rating, isAvailable }) => [
+    ...state,
+    { id, title, author, publishedDate, genre, summary, rating, isAvailable } // Add a new book to the state
+  ]), 
+  
+  //? Handle the AddBookFailure action to log the error and return the current state
+  on(AddBookFailure, (state, { error }) => {
+    console.error('Add book failed:', error); // Log the error to the console
+    return state; // Return the current state without changes
+  }), 
+
+  //? Stage 3: Handle the RemoveBook action to remove a book from the state
   on(RemoveBook, (state, { bookId }) => state.filter(book => book.id !== bookId)) // Remove a book by its ID
 
 ); /* ===========================================================================

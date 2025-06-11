@@ -11,4 +11,7 @@ export const UpdateBook = createAction('[Book] Update Book', props<{ book: Book 
 export const DeleteBook = createAction('[Book] Delete Book', props<{ bookId: string }>()); */
 
 export const AddBook = createAction('[Book] Add Book', props<Book>());
+
+export const AddBookSuccess = createAction('[Book] Add Book Success', props<Book>());
+export const AddBookFailure = createAction('[Book] Add Book Failure', props<{ error: string }>());
 export const RemoveBook = createAction( '[Book] Remove Book', props<{ bookId: string }>());
