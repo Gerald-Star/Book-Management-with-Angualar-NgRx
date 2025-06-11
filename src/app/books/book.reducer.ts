@@ -12,7 +12,9 @@ import { createReducer, on } from "@ngrx/store";
 import { AddBook, RemoveBook} from "./book.actions"; // Import actions to handle book management
 import { Book } from "../models/book"; // Import the Book model
 
-export const initialState: ReadonlyArray<Book> = []; // Initial state is an empty array of books
+//export const initialState: ReadonlyArray<Book> = []; // Initial state is an empty array of books
+
+export const initialState: Book[] = []; // Initial state is an empty array of books
 
 export const BookReducer = createReducer(
   initialState, // Start with the initial state and using on function to handle actions

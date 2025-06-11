@@ -3,6 +3,7 @@ import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Book } from '../models/book';
 import { AddBook, RemoveBook } from '../books/book.actions';
+import { AppState } from '../app.state'; // Import the AppState interface
 
 @Component({
   selector: 'app-book-list',
@@ -15,8 +16,8 @@ export class BookListComponent {
   books$: Observable<Book[]>  // You add this under constructor or attach it here = this.store.pipe(select('books'));
 
 
-  constructor(private store: Store<{ books: Book[] }>) {
-    this.books$ = this.store.pipe(select('books'));
+  constructor(private store: Store< AppState>) { // Inject the store with the type of the state for the books using AppState
+    this.books$ = store.pipe(select('book'));
     
   }
 

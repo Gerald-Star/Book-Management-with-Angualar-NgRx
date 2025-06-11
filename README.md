@@ -6,4 +6,7 @@
 
 ## What does ng generate mean / example app.state
 
-
+## Change to AppState
+export interface AppState {
+  book: ReturnType<typeof BookReducer>;
+}

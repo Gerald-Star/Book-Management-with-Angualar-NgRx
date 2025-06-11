@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { StoreModule } from '@ngrx/store';
 import { BookReducer } from './books/book.reducer';
-
+import { AppState } from './app.state'; // Import the AppState interface
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BookListComponent } from './book-list/book-list.component';
@@ -15,7 +15,7 @@ import { BookListComponent } from './book-list/book-list.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({ book: BookReducer }) // Register the BookReducer with the StoreModule, setting the NgRx store's root state to include the book state
+    StoreModule.forRoot<AppState> ({book: BookReducer }) // Register the BookReducer with the StoreModule, setting the NgRx store's root state to include the book state
   ],
   providers: [],
   bootstrap: [AppComponent]
