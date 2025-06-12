@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { BookService } from './book.service'; // Import the BookService to handle book-related operations
 import * as bookActions from './book.actions'; // Import all actions from book.actions
-import { switchMap, map, catchError } from 'rxjs/operators'; // Import operators for handling asynchronous operations
-import { of } from 'rxjs'; // Import of to create an observable from a value
+import { mergeMap, map, catchError, of } from 'rxjs'; // Import operators for handling asynchronous operations
+ // Import of to create an observable from a value
 
 
 @Injectable()
@@ -23,15 +23,15 @@ export class BookEffects {
       switchMap is used to switch to a new observable when the action is dispatched.
       switchMap allows the effect to handle the asynchronous operation of adding a book.
       It cancels the previous request if a new one comes in
-      If the operation fails, catch the error and map it to a failure action 
        ===============================================================================*/
-      switchMap(action => 
+      mergeMap((action) => 
         this.bookService.addBook(action).pipe(
           map(book => bookActions.AddBookSuccess(book)), // Dispatch AddBookSuccess with the added book
+          
+          //  If the operation fails, catch the error and map it to a failure action 
           catchError(error => of(bookActions.AddBookFailure({ error }))) // Dispatch AddBookFailure on error
         ))
-    )
-  );
+    ));
 
 
   constructor(

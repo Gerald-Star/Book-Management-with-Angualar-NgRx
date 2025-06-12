@@ -12,6 +12,8 @@ export class BookService {
   // Simulate a book database with an array
 
   addBook(book: Book): Observable<Book> {
+
+    // Here you would typically make an HTTP request to your backend to add the book
     return of(book); // Simulate adding a book by returning it as an observable
   }
 }

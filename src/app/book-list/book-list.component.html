@@ -20,7 +20,9 @@
 
 
 <div>
-  <input  #bookId  type="text" placeholder="Book Id" />
+
+  <!---
+  <input #bookId  type="text" placeholder="Book Id" />
   <input #bookTitle type="text" placeholder="Book Title" />
   <input #bookAuthor type="text" placeholder="Author" />
   <input #bookPublishedDate type="date" placeholder="Published Date" />
@@ -33,5 +35,39 @@
   bookIsAvailable.checked)">
     Add Book
   </button>
+-->
+
+
+  <input #bookId type="text" placeholder="ID">
+  <input #bookTitle type="text" placeholder="Title">
+  <input #bookAuthor type="text" placeholder="Author">
+  <input #bookPublishedDate type="date" placeholder="Published Date">
+  <input #bookGenre type="text" placeholder="Genre">
+  <input #bookSummary type="text" placeholder="Summary">
+  <input #bookRating type="number" placeholder="Rating">
+  <input #bookIsAvailable type="checkbox"> Available
+  
+  <button (click)="addBook(
+    bookId.value,
+    bookTitle.value,
+    bookAuthor.value,
+    bookPublishedDate.value,
+    bookGenre.value,
+    bookSummary.value,
+    bookRating.valueAsNumber,
+    bookIsAvailable.checked,
+    bookId,
+    bookTitle,
+    bookAuthor,
+    bookPublishedDate,
+    bookGenre,
+    bookSummary,
+    bookRating,
+    bookIsAvailable
+  )">Add Book</button>
+
+
+
+  
 </div>
 
