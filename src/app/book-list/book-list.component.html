@@ -1,73 +1,67 @@
-<p>book-list works!</p>
+
+<div class="container">
+  <h1 class="title">📚 Book Catalog</h1>
 
 
-<h1>Book</h1>
+  <!--Displays book lists-->
 
-<div *ngFor="let book of books$ | async ">
+  <div class="book-list">
+    <div class="book-card" *ngFor="let book of books$ | async">
+      <h2>{{ book.title }}</h2>
+      <p><strong>Author:</strong> {{ book.author }}</p>
+      <p><strong>Published:</strong> {{ book.publishedDate | date }}</p>
+      <p><strong>Genre:</strong> {{ book.genre }}</p>
+      <p><strong>Summary:</strong> {{ book.summary }}</p>
+      <p><strong>Rating:</strong> {{ book.rating }}</p>
+      <p><strong>Available:</strong> {{ book.isAvailable ? 'Yes' : 'No' }}</p>
+      <button (click)="removeBook(book.id)">🗑️ Remove Book</button>
+    </div>
+  </div>
 
-  <h2>{{ book.title }}</h2>
-  <p>Author: {{ book.author }}</p>
-  <p>Published: {{ book.publishedDate | date }}</p>
-  <p>Genre: {{ book.genre }}</p>
-  <p>Summary: {{ book.summary }}</p>
-  <p>Rating: {{ book.rating }}</p>
-  <p>Available: {{ book.isAvailable ? 'Yes' : 'No' }}</p>
-  <hr>
-  <button (click)="removeBook(book.id)">Remove Book</button>
+  <h2 class="subtitle">➕ Create a New Book</h2>
+
+  <div class="form-container">
+    <input #bookId type="text" placeholder="ID">
+    <input #bookTitle type="text" placeholder="Title">
+    <input #bookAuthor type="text" placeholder="Author">
+    <input #bookPublishedDate type="date" placeholder="Published Date">
+    <input #bookGenre type="text" placeholder="Genre">
+    <input #bookSummary type="text" placeholder="Summary">
+    <input #bookRating type="number" placeholder="Rating">
+    <label><input #bookIsAvailable type="checkbox"> Available</label>
+
+    <div class="button-group">
+      <button (click)="addBook(
+        bookId.value,
+        bookTitle.value,
+        bookAuthor.value,
+        bookPublishedDate.value,
+        bookGenre.value,
+        bookSummary.value,
+        bookRating.valueAsNumber,
+        bookIsAvailable.checked,
+        bookId,
+        bookTitle,
+        bookAuthor,
+        bookPublishedDate,
+        bookGenre,
+        bookSummary,
+        bookRating,
+        bookIsAvailable
+      )">✅ Add Book</button>
+
+      <button (click)="clearForm(
+        bookId,
+        bookTitle,
+        bookAuthor,
+        bookPublishedDate,
+        bookGenre,
+        bookSummary,
+        bookRating,
+        bookIsAvailable
+      )">🧹 Clear Form</button>
+    </div>
+  </div>
 </div>
 
-<h2>Create a new book</h2>
-
-
-<div>
-
-  <!---
-  <input #bookId  type="text" placeholder="Book Id" />
-  <input #bookTitle type="text" placeholder="Book Title" />
-  <input #bookAuthor type="text" placeholder="Author" />
-  <input #bookPublishedDate type="date" placeholder="Published Date" />
-  <input #bookGenre type="text" placeholder="Genre" />
-  <input #bookSummary type="text" placeholder="Summary" />
-  <input #bookRating type="number" placeholder="Rating" />
-  <input #bookIsAvailable type="checkbox" />
-  <button (click)="addBook(bookId.value, bookTitle.value, bookAuthor.value, 
-  bookPublishedDate.value, bookGenre.value, bookSummary.value, +bookRating.value, 
-  bookIsAvailable.checked)">
-    Add Book
-  </button>
--->
-
-
-  <input #bookId type="text" placeholder="ID">
-  <input #bookTitle type="text" placeholder="Title">
-  <input #bookAuthor type="text" placeholder="Author">
-  <input #bookPublishedDate type="date" placeholder="Published Date">
-  <input #bookGenre type="text" placeholder="Genre">
-  <input #bookSummary type="text" placeholder="Summary">
-  <input #bookRating type="number" placeholder="Rating">
-  <input #bookIsAvailable type="checkbox"> Available
-  
-  <button (click)="addBook(
-    bookId.value,
-    bookTitle.value,
-    bookAuthor.value,
-    bookPublishedDate.value,
-    bookGenre.value,
-    bookSummary.value,
-    bookRating.valueAsNumber,
-    bookIsAvailable.checked,
-    bookId,
-    bookTitle,
-    bookAuthor,
-    bookPublishedDate,
-    bookGenre,
-    bookSummary,
-    bookRating,
-    bookIsAvailable
-  )">Add Book</button>
-
-
-
-  
-</div>
 

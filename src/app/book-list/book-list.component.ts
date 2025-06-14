@@ -63,10 +63,13 @@ import { AppState } from '../app.state';
 })
 export class BookListComponent {
 
-  books$: Observable<Book[]>;
+  books$: Observable<Book[]>; 
+
 
   constructor(private store: Store<AppState>) {
     this.books$ = store.pipe(select('book'));
+
+    
   }
 
   addBook(
