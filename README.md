@@ -1,5 +1,6 @@
 # BookManagement
 
+![Book Catalog Management](https://github.com/Gerald-Star/Book-Management-with-Angualar-NgRx/blob/cf5622f594a8c95bb9a68d2ffb1285aace19d999/Angular%20Project%201%20cover.png)
 
 
 
