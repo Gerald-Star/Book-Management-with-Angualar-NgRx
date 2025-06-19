@@ -10,12 +10,10 @@ In this project, I integrated NgRx into an Angular application to manage the sta
 
 ![Book Catalog Management](https://github.com/Gerald-Star/Book-Management-with-Angualar-NgRx/blob/cf5622f594a8c95bb9a68d2ffb1285aace19d999/Angular%20Project%201%20cover.png)
 
-https://youtu.be/hdzMU6Sph84
 
-[![Watch the video](https://youtu.be/hdzMU6Sph84)
+### Click down to watch the video
 
 [![Watch the video](https://github.com/Gerald-Star/Book-Management-with-Angualar-NgRx/blob/05da4d1bb831039b0f2ed63a151c17dd75d29868/devtools%202.png)](https://youtu.be/hdzMU6Sph84)
-
 
 ### BookReducer (NgRx State Management)
 In this reducer, I implemented NgRx to manage an array of books. I handled actions like AddBook, AddBookSuccess, and RemoveBook with a clear, immutable pattern. For async operations, I used AddBook as a trigger and AddBookSuccess/AddBookFailure to update the state accordingly. This separation of concerns improves scalability and testability of my app’s state logic.
