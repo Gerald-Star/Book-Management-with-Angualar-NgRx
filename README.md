@@ -14,7 +14,7 @@ https://youtu.be/hdzMU6Sph84
 
 [![Watch the video](https://youtu.be/hdzMU6Sph84)
 
-[![Watch the video](https://img.youtube.com/vi/dQw4w9WgXcQ/0.jpg)](https://youtu.be/hdzMU6Sph84)
+[![Watch the video](https://github.com/Gerald-Star/Book-Management-with-Angualar-NgRx/blob/cf5622f594a8c95bb9a68d2ffb1285aace19d999/Angular%20Project%201%20cover.png)](https://youtu.be/hdzMU6Sph84)
 
 
 ### BookReducer (NgRx State Management)
