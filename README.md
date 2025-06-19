@@ -23,9 +23,6 @@ This class uses NgRx Effects to handle side effects like HTTP requests when inte
 ```
 I created an NgRx effect addBook$ to handle the asynchronous process of adding a book. When the AddBook action is dispatched, this effect calls a bookService method, and depending on the outcome, dispatches either AddBookSuccess or AddBookFailure. This allows me to manage complex side effects outside of components, keeping the UI reactive, clean, and testable.
 
-![Book Catalog Management](https://github.com/Gerald-Star/Book-Management-with-Angualar-NgRx/blob/cf5622f594a8c95bb9a68d2ffb1285aace19d999/Angular%20Project%201%20cover.png)
-
-
 ## Breakdown of Key Parts
 
 ### Basic Angular modules to bootstrap the app in the browser.
